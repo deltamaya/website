@@ -91,17 +91,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         color="#5bbad5"
       />
       <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdfdfd" />
+      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f5f5" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
+      <body className="bg-gray-100 pl-[calc(100vw-100%)] text-black antialiased dark:bg-neutral-950 dark:text-gray-100">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+          <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
+            <Header />
+          </SearchProvider>
           <SectionContainer>
-            <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-              <Header />
-              <main className="mb-auto">{children}</main>
-            </SearchProvider>
+            <main className="mb-auto">{children}</main>
             <Footer />
           </SectionContainer>
         </ThemeProviders>
