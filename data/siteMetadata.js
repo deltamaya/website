@@ -1,11 +1,11 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'MayaDelta Blog',
+  title: 'Maya Delta Blog',
   author: 'deltamaya',
   headerTitle: 'Deltamaya',
-  description: 'A blog created with Next.js and Tailwind.css',
-  language: 'en-us',
-  theme: 'system', // system, dark or light
+  description: 'Personal Blog Project',
+  language: 'zh-CN',
+  theme: 'light', // system, dark or light
   siteUrl: 'https://deltamaya.cc',
   siteRepo: 'https://github.com/deltamaya/website',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
@@ -18,7 +18,7 @@ const siteMetadata = {
   // linkedin: 'https://www.linkedin.com',
   // threads: 'https://www.threads.net',
   // instagram: 'https://www.instagram.com',
-  locale: 'en-US',
+  locale: 'zh-CN',
   // set to true if you want a navbar fixed to the top
   stickyNav: true,
   analytics: {
