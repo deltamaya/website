@@ -52,7 +52,6 @@ async function generateRSS(config, allBlogs, page = 'feed.xml') {
       const rssPath = path.join('public', 'tags', tag)
       mkdirSync(rssPath, { recursive: true })
       writeFileSync(path.join(rssPath, page), rss)
-      console.log(path.join(rssPath, page));
     }
   }
 }
