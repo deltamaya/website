@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Maya Delta Blog</title>
+      <link>https://deltamaya.cc/blog</link>
+      <description>Personal Blog Project</description>
+      <language>zh-CN</language>
+      <managingEditor>me@deltamaya.cc (deltamaya)</managingEditor>
+      <webMaster>me@deltamaya.cc (deltamaya)</webMaster>
+      <lastBuildDate>Sat, 07 Sep 2024 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://deltamaya.cc/feeds/dsa/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://deltamaya.cc/blog/datastructure-algorithm/graph-intro</guid>
+    <title>Introduction to Graph</title>
+    <link>https://deltamaya.cc/blog/datastructure-algorithm/graph-intro</link>
+    <description>介绍了图论中的常见概念</description>
+    <pubDate>Sat, 07 Sep 2024 00:00:00 GMT</pubDate>
+    <author>me@deltamaya.cc (deltamaya)</author>
+    <category>DSA</category><category>graph</category>
+  </item>
+
+    </channel>
+  </rss>

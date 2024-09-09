@@ -23,10 +23,10 @@ public/sitemap.xml
 *.xml
 
 # rss feed
-/public/feed.xml
+#/public/feed.xml
 
 # search
-/public/search.json
+#/public/search.json
 
 # misc
 .DS_Store
