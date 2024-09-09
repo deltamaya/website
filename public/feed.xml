@@ -11,16 +11,6 @@
       <atom:link href="https://deltamaya.cc/feed.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-    <guid>https://deltamaya.cc/blog/networks-crowds-markets/triadic-closure-homophily</guid>
-    <title>Triadic Closure &amp; Homophily</title>
-    <link>https://deltamaya.cc/blog/networks-crowds-markets/triadic-closure-homophily</link>
-    <description>简要介绍三元闭包以及同质性</description>
-    <pubDate>Sat, 07 Sep 2024 00:00:00 GMT</pubDate>
-    <author>me@deltamaya.cc (deltamaya)</author>
-    <category>NCM</category><category>graph</category>
-  </item>
-
-  <item>
     <guid>https://deltamaya.cc/blog/datastructure-algorithm/graph-intro</guid>
     <title>Introduction to Graph</title>
     <link>https://deltamaya.cc/blog/datastructure-algorithm/graph-intro</link>
@@ -28,6 +18,16 @@
     <pubDate>Sat, 07 Sep 2024 00:00:00 GMT</pubDate>
     <author>me@deltamaya.cc (deltamaya)</author>
     <category>DSA</category><category>graph</category>
+  </item>
+
+  <item>
+    <guid>https://deltamaya.cc/blog/networks-crowds-markets/triadic-closure-homophily</guid>
+    <title>Triadic Closure &amp; Homophily</title>
+    <link>https://deltamaya.cc/blog/networks-crowds-markets/triadic-closure-homophily</link>
+    <description>简要介绍三元闭包以及同质性</description>
+    <pubDate>Sat, 07 Sep 2024 00:00:00 GMT</pubDate>
+    <author>me@deltamaya.cc (deltamaya)</author>
+    <category>NCM</category><category>graph</category>
   </item>
 
   <item>

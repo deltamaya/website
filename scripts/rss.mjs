@@ -49,7 +49,7 @@ async function generateRSS(config, allBlogs, page = 'feed.xml') {
           post.tags.map((t) => slug(t)).includes(tag)
       )
       const rss = generateRss(config, filteredPosts, `feeds/${tag}/${page}`)
-      const rssPath = path.join('public','static', 'feeds', tag)
+      const rssPath = path.join('public', 'feeds', tag)
       mkdirSync(rssPath, { recursive: true })
       writeFileSync(path.join(rssPath, page), rss)
       console.log(path.join(rssPath, page));
