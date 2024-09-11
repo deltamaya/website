@@ -1,11 +1,11 @@
 ---
-title: Introduction to Graph
+title: 图论基础
 date: '2024-09-07'
 tags: ['DSA','graph']
 draft: false
 summary: 介绍了图论中的常见概念
 ---
-# Definition of Graph
+# 图的定义
 形象的说，图是由若干个**节点 (Vertex)** 和若干条连接节点的 **边 (Edge)** 构成的。
 
 ![Graph](/static/images/dsa/graph-intro.png)
@@ -15,7 +15,7 @@ summary: 介绍了图论中的常见概念
 图有很多种，比如**无向图 (undirected graph)**和**有向图 (directed graph)**。如果一个图中的所有边都是无向边，那么图就是无向图，如果一个图中的所有边都是有向边，那么图就是有向图。无向图可以看作是特殊的有向图，其中每一条边$e=(u, v)$，都有一条对应边$e=(v,u)$。
 
 如果$G$的每一条边$e$都被赋予了一个权值，那么$G$就是赋权图，如果所有的权都是正数，就称$G$为正权图。
-# Concepts
+# 相关概念
 
 ## 度数
 对于一个节点$v$，它的度数 $d(v)$就是$v$连接的边的条数。

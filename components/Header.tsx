@@ -10,7 +10,7 @@ import SearchButton from './SearchButton'
 import { useTheme } from 'next-themes'
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-gray-100 dark:bg-stone-950 justify-between '
+  let headerClass = 'flex items-center w-full bg-gray-100 dark:bg-neutral-950 justify-between '
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }
