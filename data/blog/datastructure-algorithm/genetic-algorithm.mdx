@@ -1,0 +1,114 @@
+---
+title: 遗传算法
+date: '2024-04-17'
+tags: ['DSA']
+draft: false
+summary: 用遗传算法求int最大值的简单例子。
+---
+
+感觉wiki讲的挺好的，比我再复述一遍容易理解。
+
+参见遗传算法[维基百科](https://zh.wikipedia.org/zh-cn/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95)
+
+代码实现：
+```cpp
+constexpr size_t PopulationSize = 10;
+constexpr size_t ChromosomeLength = 64;
+constexpr double CrossoverRate = 0.8;
+constexpr double MutationRate = 0.1;
+constexpr size_t GenerationCount = 100;
+using Individual = std::uint64_t;
+std::random_device rd;
+std::mt19937_64 rng(rd.entropy() ? rd() : std::time(nullptr));
+Individual best = 0;
+
+Individual RandomIndividual() {
+  std::uniform_int_distribution<size_t> range{
+      0, std::numeric_limits<Individual>::max()};
+  return range(rng);
+}
+std::vector<Individual> OriginGeneration() {
+  std::vector<Individual> origin;
+  origin.reserve(PopulationSize);
+  for (int i = 0; i < PopulationSize; i++) {
+    origin.push_back(RandomIndividual());
+  }
+  return origin;
+}
+std::size_t Fitness(Individual ind) { return static_cast<size_t>(ind); }
+void Crossover(Individual *father, Individual *mother) {
+  std::uniform_int_distribution<size_t> range{0, ChromosomeLength};
+  size_t shift = range(rng);
+  // like 00000000000*****
+  Individual father_part = *father & ((~0) >> (ChromosomeLength - shift));
+  Individual mother_part = *mother & ((~0) >> (ChromosomeLength - shift));
+  // like ***********00000
+  *father &= (~0) << shift;
+  *mother &= (~0) << shift;
+  // combine
+  *father |= mother_part;
+  *mother |= father_part;
+}
+void Mutation(Individual *ind) {
+  std::uniform_int_distribution<size_t> range{0, ChromosomeLength};
+  size_t shift = range(rng);
+  (*ind) ^= 1 << shift;
+}
+int main() {
+  std::vector<Individual> gen = OriginGeneration();
+  for (size_t g = 0; g < GenerationCount; g++) {
+    for (const auto &ind : gen) {
+      if (Fitness(ind) > Fitness(best))
+        best = ind;
+    }
+    std::println("Generation {}: {}", g, best);
+    std::uniform_int_distribution<size_t> range{0, 100};
+    for (auto &ind : gen) {
+      if (double(range(rng)) < 100 * MutationRate)
+        Mutation(&ind);
+    }
+    for (size_t i = 0; i < PopulationSize - 1; i += 2) {
+      if (double(range(rng)) < 100 * CrossoverRate)
+        Crossover(&gen[i], &gen[i + 1]);
+    }
+    std::vector<Individual> new_gen;
+    new_gen.reserve(PopulationSize);
+    std::sort(gen.begin(), gen.end(),
+              [](const Individual &lhs, const Individual &rhs) {
+                return Fitness(lhs) < Fitness(rhs);
+              });
+    for (int i = 0; i < gen.size(); i++) {
+      if (range(rng) < 100 * (double(i) / double(gen.size()))) {
+        new_gen.push_back(gen[i]);
+      }
+    }
+    while (new_gen.size() < PopulationSize)
+      new_gen.push_back(RandomIndividual());
+    gen = new_gen;
+  }
+  std::println("History best: {}", std::numeric_limits<Individual>::max());
+  std::println("Distinction: {}",
+               std::numeric_limits<Individual>::max() - best);
+  std::println("Top {}%",
+               1.0 - double(best) / std::numeric_limits<Individual>::max());
+}
+```
+
+样例输出：
+```
+Generation 0: 16247498691092929341
+Generation 1: 18149457003099879423
+Generation 2: 18149457003099879423
+Generation 3: 18436998002636085802
+Generation 4: 18437736857274873740
+...
+Generation 94: 18446744073709551615
+Generation 95: 18446744073709551615
+Generation 96: 18446744073709551615
+Generation 97: 18446744073709551615
+Generation 98: 18446744073709551615
+Generation 99: 18446744073709551615
+History best: 18446744073709551615
+Distinction: 0
+Top 0%
+```
