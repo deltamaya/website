@@ -70,7 +70,6 @@ Miller-Rabin算法就是通过使用素数的性质进行简单校验，能够�
 
 结合上面的几个定理，我们就可以快速的判断一个大数不是素数的情况，C++示例代码如下：
 ```cpp
-int QuickPower(int a, int b) { return pow(a, b); }
 bool MillerRabinTest(const std::int64_t n) {
   // find k,q that satisfies n-1 == (2^k) * q
   std::int64_t temp = n;
@@ -101,4 +100,5 @@ bool MillerRabinTest(const std::int64_t n) {
 ### 重复使用Miller-Rabin算法
 如何使用Miller-Rabin算法以更高的可信度来判断一个整数是不是素数呢？我们可以通过选取不同的a来多次进行测试，如果测试用例数t=10，那么一个非素数通过所有测试的概率小于$10^{-6}$。因此，取足够大的t就有很大把握确定n就是一个素数。
 
+密码学中经常会使用大的素数来进行加密等操作，比如RSA中的大素数分解就需要生成一个巨大的素数。
 
