@@ -7,7 +7,7 @@ summary: Step into OpenGL and FFmpeg
 ---
 # What is OpenGL?
 
-Firstly, OpenGL is not a library or framework, etc.
+Firstly, OpenGL is **not** a library or framework, etc.
 It's a graphics API specification, which means it doesn't contains actually code,
 like C++. Every GPU manufacturer has their own OpenGL implementation, and that 
 explains why your game looks slightly different on NVIDIA and AMD GPU. So 
@@ -19,23 +19,23 @@ As I mentioned, the GPU manufacturer already wrote OpenGL in their driver, so if
 have the proper driver for your GPU, then you got OpenGL.
 
 ## OpenGL varients
-You may see a lot of stuff seems like has some relationship with OpenGL, like 
-OpenGL ES, WebGL, etc. Let's introduce them one by one.
+You may see a lot of stuff seems like has some relationship with `OpenGL`, like 
+`OpenGL ES`, `WebGL`, etc. Let's introduce them one by one.
 
 ### OpenGL ES
 
-OpenGL ES(Embedded System), as you can see, OpenGL ES is designed for Embedded System,
+**OpenGL ES(Embedded System)**, as you can see, OpenGL ES is designed for Embedded System,
 it is a subset of the full OpenGL API, ans is optimized for effientcy and performance on 
 these platform whih resources limitation.
 
 ### WebGL
 
-WebGL is Javascript API based on the OpenGL ES 2.0. Which provides hardware-acceleration
+**WebGL** is Javascript API based on the OpenGL ES 2.0. Which provides hardware-acceleration
 3D graphics to web browsers.
 
 ### Vulkan
 OpenGL itself is a so called "high-level" API, so it's more abstract and easy to use,
-but this feature also causes overhead, it lowers the performance. So the Vulkan
+but this feature also causes overhead, it lowers the performance. So the **Vulkan**
 cames, it is a more low level graphics API, Vulkan gives you more control to the hardware
 and allows you to write some more fast code, but it's more complex to implement.
 
@@ -43,27 +43,27 @@ and allows you to write some more fast code, but it's more complex to implement.
 OpenGL is a cross-platform graphics API and there are still a lot of 
 exclusive graphics APIs like Metal and DirectX.
 ### Metal
-Metal is a Apple exclusive graphics API which optimized for Apple silicon, which
+**Metal** is a Apple exclusive graphics API which optimized for Apple silicon, which
 provides a low level control on Mac and better performance. Metal has replaced OpenGL
 on Mac and iPhone, Apple has deprecated support for OpenGL.
 ### DirectX
-Like Metal, DirectX(Direct3D, Direct2D, etc.) is a Windows exclusive.
+Like Metal, **DirectX**(Direct3D, Direct2D, etc.) is a Windows exclusive.
 DirectX is a suitcase contains lots of library like Direct2D and Direct3D. 
 ### CUDA
-CUDA is not a Graphics API, it is a general purpose programming library on NVIDIA GPU.
+**CUDA** is not a Graphics API, it is a general purpose programming library on NVIDIA GPU.
 With CUDA, you can utilize the power of GPU to process parallel computation.
 ## Graphic API Management library
 As you can see, OpenGl is just a graphics API, what is can do is tell GPU to
 render the data you give him. But ArcVeditor is an App, I need a Window, then
 where should I go? Yes, you need graphics api management library.
 ## GLFW
-GLFW is a light-weight cross-platform OpenGL utility library.
+**GLFW** is a light-weight cross-platform OpenGL utility library.
 It provides easy to use APIs to create windows and manage OpenGL contexts.
 
 ## GLUT
-You can regard GLUT as a simpler and older version of GLFW.
+You can regard **GLUT** as a simpler and older version of GLFW.
 ## SDL
-SDL(Simple DirectMedia Layer) is also a cross-platform library we can use to
+**SDL(Simple DirectMedia Layer)** is also a cross-platform library we can use to
 manage OpenGL, SDL has much more feature than GLFW like manages 
 video, audio, input devices, threads, shared object loading, 
 networking and timers.
@@ -71,7 +71,7 @@ SDL can work with OpenGL, but it supports a lot of graphics APIs like Metal and
 Direct3D.
 
 # What is FFmpeg?
-FFmpeg is a open-source library consisting programs to process videos, audios,
+**FFmpeg** is a open-source library consisting programs to process videos, audios,
 multimedia files and streams.
 
 # OpenGL Usage & Explaination
@@ -144,8 +144,8 @@ to specify extra vertices.
 Texture coordinates range from 0 to 1 in the x and y axis 
 (remember that we use 2D texture images). 
 Retrieving the texture color using texture coordinates is called sampling. 
-Texture coordinates start at (0,0) for the lower left corner of a texture 
-image to (1,1) for the upper right corner of a texture image. 
+Texture coordinates **start at (0,0)** for the lower left corner of a texture 
+image to **(1,1)** for the upper right corner of a texture image. 
 
 For more detailed version, check: [LearnOpenGL](https://learnopengl.com/Getting-started/Textures)
 # FFmpeg Usage & Explaination
@@ -238,31 +238,31 @@ bool loadFrame(const char *filename, int *width, int *height,
 }
 ```
 ## AVFormatContext
-The AVFormatContext object contains all the data you should know to process
+The `AVFormatContext` object contains all the data you should know to process
 a media file, such as duration, tracks, and so on. Get the context of a file,
-is similar to demuxing a media file.
+is similar to `demuxing` a media file.
 ## AVCodec
-The AVCodec represents the encoder/decoder used by the stream.
+The `AVCodec` represents the `encoder/decoder` used by the stream.
 ### AVCodecContext
-AVCodecContext contains data that the encoder/decoder should know to processing
+`AVCodecContext` contains data that the `encoder/decoder` should know to processing
 streams. Such as the packet id, etc.
 ### AVCodecParams
-AVCodecParams tells you the messages related to the relevant AVCodec. Like codec id and codec type.
+`AVCodecParams` tells you the messages related to the relevant `AVCodec`. Like codec id and codec type.
 ## AVPacket
-A streams consists multiple packets, and codec can use them to process frames, 
-note that the relation between packet and frame is many to many, a packet doesn't
+A stream consists multiple `packets`, and codec can use them to process frames, 
+note that the relation between packet and frame is many to many, a packet **doesn't**
 represent a frame, that's why we should use
 ```cpp
 if (response == AVERROR(EAGAIN) || response == AVERROR_EOF) {
   continue;
 } 
 ```
-to make sure that we already decoded a frame from packets.
+to make sure that we already decoded a frame from those packets.
 ### Reference Counting
-The FFmpeg used reference counting to manage AVPacket objects, so make sure you
+The FFmpeg used reference counting to manage `AVPacket` objects, so make sure you
 uses `av_packet_unref` to unreference the packet.
 ## AVFrame
-The AVFrame decoded from AVPacket contains all the data you should know to render
+The `AVFrame` decoded from AVPacket contains all the data you should know to render
 a single video frame.
 
 
