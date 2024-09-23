@@ -7,26 +7,17 @@ summary: Step into OpenGL and FFmpeg
 ---
 # What is OpenGL?
 
-Firstly, OpenGL is **not** a library or framework, etc.
-It's a graphics API specification, which means it doesn't contains actually code,
-like C++. Every GPU manufacturer has their own OpenGL implementation, and that 
-explains why your game looks slightly different on NVIDIA and AMD GPU. So 
-it's not "Open", the GPU manufacturer doesn't open source their driver's code.
+First of all, OpenGL is **not** a library or framework. It's a graphics API specification, meaning it doesn't contain actual code like C++. Each GPU manufacturer provides its own implementation of OpenGL, which explains why a game may look slightly different on an NVIDIA GPU compared to an AMD GPU. Despite its name, it's not truly "open," as GPU manufacturers do not open-source the code for their drivers.
 
-## Then how could I "download" OpenGL?
+## How Do I "Download" OpenGL?
 
-As I mentioned, the GPU manufacturer already wrote OpenGL in their driver, so if you
-have the proper driver for your GPU, then you got OpenGL.
+As I mentioned earlier, GPU manufacturers already include OpenGL in their drivers. So, if you have the correct driver installed for your GPU, you already have OpenGL.
 
 ## OpenGL varients
-You may see a lot of stuff seems like has some relationship with `OpenGL`, like 
-`OpenGL ES`, `WebGL`, etc. Let's introduce them one by one.
+You might come across several terms related to OpenGL, such as `OpenGL ES`, `WebGL`, and more. Let’s break them down:
 
 ### OpenGL ES
-
-**OpenGL ES(Embedded System)**, as you can see, OpenGL ES is designed for Embedded System,
-it is a subset of the full OpenGL API, ans is optimized for effientcy and performance on 
-these platform whih resources limitation.
+**OpenGL ES (Embedded Systems)** is a subset of the full OpenGL API, designed specifically for embedded systems. It is optimized for efficiency and performance on platforms with limited resources.
 
 ### WebGL
 
@@ -34,41 +25,40 @@ these platform whih resources limitation.
 3D graphics to web browsers.
 
 ### Vulkan
-OpenGL itself is a so called "high-level" API, so it's more abstract and easy to use,
-but this feature also causes overhead, it lowers the performance. So the **Vulkan**
-cames, it is a more low level graphics API, Vulkan gives you more control to the hardware
-and allows you to write some more fast code, but it's more complex to implement.
+OpenGL itself is considered a "high-level" API, meaning it's more abstract and easier to use.
+However, this abstraction introduces some overhead, which can reduce performance. **Vulkan**,
+on the other hand, is a lower-level graphics API that gives developers more control over the hardware
+enabling faster code execution, but it's also more complex to implement.
 
 ## Other Graphics API
-OpenGL is a cross-platform graphics API and there are still a lot of 
-exclusive graphics APIs like Metal and DirectX.
+OpenGL is a cross-platform graphics API and there are also a lot of 
+platform-exclusive APIs like Metal and DirectX.
 ### Metal
-**Metal** is a Apple exclusive graphics API which optimized for Apple silicon, which
-provides a low level control on Mac and better performance. Metal has replaced OpenGL
-on Mac and iPhone, Apple has deprecated support for OpenGL.
+**Metal** is a **Apple**'s exclusive graphics API, highly optimized for Apple silicon, which
+provides low-level control and better performance on Mac. Metal has replaced OpenGL
+on macOS and iOS, as Apple has deprecated support for OpenGL.
 ### DirectX
-Like Metal, **DirectX**(Direct3D, Direct2D, etc.) is a Windows exclusive.
-DirectX is a suitcase contains lots of library like Direct2D and Direct3D. 
+Similar to Metal, **DirectX**(which includes Direct3D, Direct2D, etc.) is exclusive to **Windows**.
+DirectX is a suite of libraries that handles various multimedia tasks, such as 3D graphics with Direct3D
+and 2D graphics with Direct2D.
 ### CUDA
-**CUDA** is not a Graphics API, it is a general purpose programming library on NVIDIA GPU.
-With CUDA, you can utilize the power of GPU to process parallel computation.
-## Graphic API Management library
-As you can see, OpenGl is just a graphics API, what is can do is tell GPU to
-render the data you give him. But ArcVeditor is an App, I need a Window, then
-where should I go? Yes, you need graphics api management library.
+**CUDA** is not a graphics API but a general-purpose parallel computing platform created by NVIDIA.
+With CUDA, you can harness the power of the GPU for parallel computations beyond graphics rendering.
+## Graphic API Management Libraries
+As mentioned, OpenGL is just a graphics API, it tells the GPU how to render data.
+However, for an app like ArcVeditor, you need more than just rendering. You need a windowing system and
+other management tools. This is where graphics API management libraries come into play.
 ## GLFW
-**GLFW** is a light-weight cross-platform OpenGL utility library.
-It provides easy to use APIs to create windows and manage OpenGL contexts.
+**GLFW** is a lightweight, cross-platform utility library for OpenGL.
+It provides simple APIs to create windows, handle input, and manage OpenGL contexts.
 
 ## GLUT
-You can regard **GLUT** as a simpler and older version of GLFW.
+**GLUT** can ber seen as an older, simpler version of GLFW, providing basic window management for OpenGL.
 ## SDL
-**SDL(Simple DirectMedia Layer)** is also a cross-platform library we can use to
-manage OpenGL, SDL has much more feature than GLFW like manages 
-video, audio, input devices, threads, shared object loading, 
-networking and timers.
-SDL can work with OpenGL, but it supports a lot of graphics APIs like Metal and
-Direct3D.
+**SDL(Simple DirectMedia Layer)** is another cross-platform library for managing OpenGL contexts.
+Unlike GLFW, SDL offers many additional features, such as 
+video, audio, input devices handling, threads and networking.
+SDL supports multiple graphics APIs, including OpenGL, Metal, and Direct3D.
 
 # What is FFmpeg?
 **FFmpeg** is a open-source library consisting programs to process videos, audios,
@@ -238,31 +228,31 @@ bool loadFrame(const char *filename, int *width, int *height,
 }
 ```
 ## AVFormatContext
-The `AVFormatContext` object contains all the data you should know to process
-a media file, such as duration, tracks, and so on. Get the context of a file,
-is similar to `demuxing` a media file.
+The `AVFormatContext` object contains all the necessary data to process
+a media file, such as its duration, tracks, and more. Obtaining the context of a file,
+is similar to `demuxing` the media.
 ## AVCodec
-The `AVCodec` represents the `encoder/decoder` used by the stream.
+The `AVCodec` represents the `encoder/decoder` used by a stream.
 ### AVCodecContext
 `AVCodecContext` contains data that the `encoder/decoder` should know to processing
-streams. Such as the packet id, etc.
+streams, such as the packet ID and other relevant data.
 ### AVCodecParams
-`AVCodecParams` tells you the messages related to the relevant `AVCodec`. Like codec id and codec type.
+`AVCodecParams` provides details about the associated `AVCodec`. Like codec ID and codec type.
 ## AVPacket
-A stream consists multiple `packets`, and codec can use them to process frames, 
-note that the relation between packet and frame is many to many, a packet **doesn't**
-represent a frame, that's why we should use
+A stream is made up of multiple **packets**, which the codec uses to process frames.
+It's important to note that the relationship between packets and frames is many-to-many, a packet **does not**
+represent a single frame. This is why we use the following code to ensure that a frame has between
+decoded from the packets.
 ```cpp
 if (response == AVERROR(EAGAIN) || response == AVERROR_EOF) {
   continue;
 } 
 ```
-to make sure that we already decoded a frame from those packets.
 ### Reference Counting
-The FFmpeg used reference counting to manage `AVPacket` objects, so make sure you
-uses `av_packet_unref` to unreference the packet.
+FFmpeg uses reference counting to manage `AVPacket` objects. Therefore be sure to
+call `av_packet_unref` to release the packet when you're doen with it.
 ## AVFrame
-The `AVFrame` decoded from AVPacket contains all the data you should know to render
+The `AVFrame` object, which is decoded from `AVPacket`, contains all the data you should know to render
 a single video frame.
 
 
