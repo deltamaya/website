@@ -240,9 +240,11 @@ streams, such as the packet ID and other relevant data.
 `AVCodecParams` provides details about the associated `AVCodec`. Like codec ID and codec type.
 ## AVPacket
 A stream is made up of multiple **packets**, which the codec uses to process frames.
-It's important to note that the relationship between packets and frames is many-to-many, a packet **does not**
-represent a single frame. This is why we use the following code to ensure that a frame has between
-decoded from the packets.
+It's important to note that the mapping from packets to frames is different, a packet **does not**
+always represent a single frame. Typically, in `FFmpeg`, 
+a video packet contains exactly `single` frame and a audio packet contains 
+`multiple` audio frame's data. This is why we use the following code to ensure that a frame has been
+decoded from the packets correctly.
 ```cpp
 if (response == AVERROR(EAGAIN) || response == AVERROR_EOF) {
   continue;
@@ -253,6 +255,6 @@ FFmpeg uses reference counting to manage `AVPacket` objects. Therefore be sure t
 call `av_packet_unref` to release the packet when you're doen with it.
 ## AVFrame
 The `AVFrame` object, which is decoded from `AVPacket`, contains all the data you should know to render
-a single video frame.
+a single video frame, also managed by reference counting.
 
 
