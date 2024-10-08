@@ -1,0 +1,28 @@
+---
+title: ArcVeditor DevLog#3
+date: '2024-10-08'
+tags: ['graphics','devlog','opengl','ffmpeg','media-processing']
+draft: false
+summary: Struggled to the seeking functionality
+---
+# Progress
+
+After a week's vacation, I finally backed to working on this little project. But I also see that implement a video editor using ffmpeg is extremely hard and complicated, so I decided to simplify the program into video player instead of a video editor. The currently stage of the program is I have already implemented the seek functionality, and it could jump to the nearest keyframe using the `AVSEEK_BACKWARD` seek flag. And I also added the control panel to make it friendlier to manipulate the playback of the video.
+
+## Concepts
+
+So the time after I wrote devlog#2, I'm working on the seek functionality, and I've encountered a few problems.
+
+## av_seek_frame
+
+So the FFmpeg provides a easy to use API called `av_seek_frame`, you could just provide the PTS of the time you want to land, and the API will tell the demuxer and decoder the the position you want. However, there is still many pitfalls.
+
+## Seek Flag
+
+For example, the first issue I've encountered is the seek flag. After performing the `av_seek_frame` function, if you provides the empty seek flag the it, and you seek forward, it will no nothing. And if you provides the `AVSEEK_BACKWARD` seek flag to it, it will jump to the nearest **keyframe** ahead of it, means it will jump to a time  a little bit earlier to the exact time you desire.
+If you use the `AVSEEK_ANY` it will literally jumps to the exact time you desire, but it's a little bit complicated, so I decided to use the keyframe seeking instead.
+
+# SDL + ImGui
+I tried every method on myself to integrate the Dear ImGui to the SDL, but I failed to render the ImGui window onto the renderer which have the video texture on it. So I seek to help on the Internet. luckily, I found a little library that just satisfied my needs, see [imgui_sdl](https://github.com/Tyyppi77/imgui_sdl). And I wrote a simple control panel to control the video playback. Unfortunately, there is still many bugs in the program.
+
+![demo](/static/images/devlog/devlog3-demostrate.png)
