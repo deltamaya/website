@@ -19,7 +19,7 @@ export default function AuthorLayout({ children, content }: Props) {
             About
           </h1>
         </div>
-        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
+        <div className="items-start space-y-2 text-lg xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
           <div className="flex flex-col items-center space-x-2 pt-8">
             {avatar && (
               <Image
@@ -40,7 +40,7 @@ export default function AuthorLayout({ children, content }: Props) {
             {/*  <SocialIcon kind="x" href={twitter} />*/}
             {/*</div>*/}
           </div>
-          <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">
+          <div className="prose max-w-none pb-8 pt-8 text-lg dark:prose-invert xl:col-span-2">
             {children}
           </div>
         </div>
