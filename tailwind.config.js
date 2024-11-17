@@ -22,7 +22,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-ibm-plex-serif)', ...fontFamily.sans],
+        sans: ['var(--font-ibm-plex-serif)', 'var(--font-noto-serif-sim)', ...fontFamily.sans],
       },
       colors: {
         primary: colors.red,

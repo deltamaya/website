@@ -2,7 +2,7 @@ import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
-import { IBM_Plex_Serif } from 'next/font/google'
+import { IBM_Plex_Serif, Noto_Serif_SC } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -16,6 +16,11 @@ const ibmPlexSerif = IBM_Plex_Serif({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-ibm-plex-serif',
+})
+const notoSerifSim = Noto_Serif_SC({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-noto-serif-sim',
 })
 
 export const metadata: Metadata = {
@@ -64,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang={siteMetadata.language}
-      className={`${ibmPlexSerif.variable} scroll-smooth`}
+      className={`${ibmPlexSerif.variable} ${notoSerifSim.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <link
