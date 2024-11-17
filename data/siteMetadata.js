@@ -5,7 +5,7 @@ const siteMetadata = {
   headerTitle: 'IMVM',
   description: 'Personal Blog Project',
   language: 'zh-CN',
-  theme: 'system', // system, dark or light
+  theme: 'light', // system, dark or light
   siteUrl: 'https://www.imvm.dev',
   siteRepo: 'https://github.com/deltamaya/website',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,

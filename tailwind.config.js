@@ -22,7 +22,8 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-ibm-plex-serif)', 'var(--font-noto-serif-sim)', ...fontFamily.sans],
+        sans: ['var(--font-inter-sans)', 'Arial', 'sans-serif'],
+        serif: ['var(--font-ibm-plex-serif)', 'var(--font-noto-serif-sim)', 'serif'],
       },
       colors: {
         primary: colors.red,
@@ -45,7 +46,7 @@ module.exports = {
             },
             'h1,h2': {
               fontWeight: '700',
-              letterSpacing: theme('letterSpacing.loose'),
+              letterSpacing: theme('letterSpacing.tight'),
             },
             h3: {
               fontWeight: '600',

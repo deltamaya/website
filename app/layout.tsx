@@ -2,7 +2,7 @@ import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
-import { IBM_Plex_Serif, Noto_Serif_SC } from 'next/font/google'
+import { IBM_Plex_Serif, Noto_Serif_SC, Inter } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -21,6 +21,11 @@ const notoSerifSim = Noto_Serif_SC({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-noto-serif-sim',
+})
+const interSans = Inter({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-inter-sans',
 })
 
 export const metadata: Metadata = {

@@ -43,14 +43,14 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <dl className="space-y-10">
                 <div>
                   <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                  <dd className="font-serif text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
                   </dd>
                 </div>
               </dl>
-              <div>
+              <div className="font-serif">
                 <PageTitle>{title}</PageTitle>
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
             <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
               <dt className="sr-only">Authors</dt>
-              <dd>
+              <dd className="font-serif text-lg">
                 <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   {authorDetails.map((author) => (
                     <li className="flex items-center space-x-2" key={author.name}>
@@ -94,7 +94,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 text-lg dark:prose-invert">
+              <div className="prose max-w-none pb-8 pt-10 font-sans text-lg dark:prose-invert">
                 {children}
               </div>
               {siteMetadata.comments && (
@@ -128,7 +128,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           Previous Article
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${prev.path}`}>{prev.title}</Link>
+                          <Link href={`/${prev.path}`} className="font-serif">
+                            {prev.title}
+                          </Link>
                         </div>
                       </div>
                     )}
@@ -138,20 +140,22 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           Next Article
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${next.path}`}>{next.title}</Link>
+                          <Link href={`/${next.path}`} className="font-serif">
+                            {next.title}
+                          </Link>
                         </div>
                       </div>
                     )}
                   </div>
                 )}
               </div>
-              <div className="pt-4 xl:pt-8">
+              <div className="pt-4 font-serif xl:pt-8">
                 <Link
                   href={`/${basePath}`}
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="Back to the blog"
+                  aria-label="Return"
                 >
-                  &larr; Back to the blog
+                  &larr; Return
                 </Link>
               </div>
             </footer>
