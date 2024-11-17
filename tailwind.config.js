@@ -45,13 +45,14 @@ module.exports = {
             },
             'h1,h2': {
               fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
+              letterSpacing: theme('letterSpacing.loose'),
             },
             h3: {
               fontWeight: '600',
             },
             code: {
-              color: theme('colors.indigo.500'),
+              color: theme('colors.primary.500'),
+              fontWeight: '900',
             },
           },
         },
