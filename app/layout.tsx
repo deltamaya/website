@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang={siteMetadata.language}
-      className={`${ibmPlexSerif.variable} ${notoSerifSim.variable} scroll-smooth`}
+      className={`${ibmPlexSerif.variable} ${notoSerifSim.variable} ${interSans.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <link
