@@ -10,7 +10,7 @@ export default function Home({ posts }) {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 font-serif md:space-y-5">
+        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-3xl  font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Latest
           </h1>
@@ -56,8 +56,8 @@ export default function Home({ posts }) {
                       <div className="font-serif text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Read more: "${title}"`}
+                          className="font-bold text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                          aria-label={`Read: "${title}"`}
                         >
                           Read &rarr;
                         </Link>
@@ -74,7 +74,7 @@ export default function Home({ posts }) {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="font-serif text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            className="font-serif text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-bold"
             aria-label="All posts"
           >
             All Posts &rarr;

@@ -20,12 +20,12 @@ const Header = () => {
       <Link href="/" aria-label={siteMetadata.headerTitle} className={'ml-5'}>
         <div className=" flex w-full items-center justify-between ">
           <div className="mr-3">{resolvedTheme === 'dark' ? <LogoLight /> : <LogoDark />}</div>
-          <div className="hidden h-6 font-serif text-2xl font-bold sm:block">
+          <div className="hidden h-6 text-2xl font-bold sm:block">
             {siteMetadata.headerTitle}
           </div>
         </div>
       </Link>
-      <div className="mr-10 flex items-center space-x-4 font-serif leading-5 sm:space-x-6">
+      <div className="mr-10 flex items-center space-x-4 leading-5 sm:space-x-6">
         <div className="no-scrollbar hidden max-w-40 items-center space-x-4 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
           {headerNavLinks
             .filter((link) => link.href !== '/')
