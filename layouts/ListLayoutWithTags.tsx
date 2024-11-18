@@ -30,10 +30,10 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
   const nextPage = currentPage + 1 <= totalPages
 
   return (
-    <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+    <div className="space-y-2 pb-8 pt-6 font-bold md:space-y-5">
       <nav className="flex justify-between">
         {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
+          <button className="cursor-auto  disabled:opacity-50" disabled={!prevPage}>
             Previous
           </button>
         )}
@@ -45,7 +45,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
             Previous
           </Link>
         )}
-        <span>
+        <span className="font-bold">
           {currentPage} of {totalPages}
         </span>
         {!nextPage && (

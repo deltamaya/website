@@ -53,7 +53,7 @@ module.exports = {
             },
             code: {
               color: theme('colors.primary.500'),
-              fontWeight: '900',
+              fontWeight: '700',
               fontSize: '17px',
             },
           },
