@@ -20,9 +20,7 @@ const Header = () => {
       <Link href="/" aria-label={siteMetadata.headerTitle} className={'ml-5'}>
         <div className=" flex w-full items-center justify-between ">
           <div className="mr-3">{resolvedTheme === 'dark' ? <LogoLight /> : <LogoDark />}</div>
-          <div className="hidden h-6 text-2xl font-bold sm:block">
-            {siteMetadata.headerTitle}
-          </div>
+          <div className="hidden h-6 text-2xl font-bold sm:block">{siteMetadata.headerTitle}</div>
         </div>
       </Link>
       <div className="mr-10 flex items-center space-x-4 leading-5 sm:space-x-6">
